@@ -1,0 +1,14 @@
+#parent{
+    height: 300px;
+    width: 300px;
+    background-color: aliceblue;
+}
+#child{
+    height: 200px;
+    width: 200px;
+    background-color: aqua;
+}
+
+h1{
+    color: red;
+}
