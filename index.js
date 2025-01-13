@@ -1,12 +1,7 @@
-let parent = React.createElement(
-    "div",
-    { id: "parent" },
-    React.createElement(
-      "div",
-      { id: "child" },
-      React.createElement("h1", {}, "Hello wolrd from react")
-    )
-  );
+import React from 'react';
+import ReactDOM from 'react-dom/client'
+
+  const jsxHeading=<h1>Hello world from React</h1>;
 
   const root=ReactDOM.createRoot(document.getElementById("root"));
-  root.render(parent);
+  root.render(jsxHeading);
