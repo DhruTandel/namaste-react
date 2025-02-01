@@ -9,7 +9,7 @@ const useRestaurantMenu = (id) => {
 
   const fetchMenu = async () => {
     const data = await fetch(
-      `https://678d18b7f067bf9e24e94168.mockapi.io/api/v1/restaurants/restaurant-list/${id}`
+      `https://679096ddaf8442fd7376db31.mockapi.io/api/v1/restaurants-list/restaurants/${id}`
     );
     const json = await data.json();
     setResInfo(json);
