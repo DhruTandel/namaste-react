@@ -62,7 +62,7 @@ const appRouter = createBrowserRouter([
     element: <SignUp />,
   },
   {
-    path: "/app",
+    path: "/home",
     element: <App />,
     children: [
       {
@@ -86,7 +86,7 @@ const appRouter = createBrowserRouter([
         ),
       },
       {
-        path: "/app/body/restaurant/:id",
+        path: "/home/body/restaurant/:id",
         element: <Restaurant />,
       },
       {
@@ -103,3 +103,5 @@ const appRouter = createBrowserRouter([
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter} />);
+
+

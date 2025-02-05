@@ -9,3 +9,4 @@ test("Component should render",()=>{
     const heading =screen.getByRole("heading");
     expect(heading).toBeInTheDocument();
 });
+

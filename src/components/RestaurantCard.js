@@ -7,7 +7,7 @@ const RestaurantCard = (props) => {
     console.log(props.resData)
 
   return (
-    <Link to={`/app/body/restaurant/${id}`} style={{ textDecoration: "none", color: "inherit" }}>
+    <Link to={`/home/body/restaurant/${id}`} style={{ textDecoration: "none", color: "inherit" }}>
    
     <div className="h-auto w-64 border-2 border-solid border-black p-1 m-3 bg-gray-100 rounded-xl">
       <img className="w-full p-1 box-border h-52 bg-cover rounded-xl"

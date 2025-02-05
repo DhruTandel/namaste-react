@@ -21,11 +21,11 @@ export const Header = () => {
           </div>
           <nav className="navbar">
             <ul className="nav-links flex list-none text-2xl gap-12 mr-">
-              <li className=""><Link to="/app/body">Home</Link></li>
-              <li><Link to="/app/about">About us</Link></li>
-              <li><Link to="/app/contact">Contact us</Link></li>
-              <li><Link to="/app/grocery">Grocery</Link></li>
-              <li><Link to="/app/cart">Cart({cartItems.length})</Link></li>
+              <li className=""><Link to="/home/body">Home</Link></li>
+              <li><Link to="/home/about">About us</Link></li>
+              <li><Link to="/home/contact">Contact us</Link></li>
+              <li><Link to="/home/grocery">Grocery</Link></li>
+              <li><Link to="/home/cart">Cart({cartItems.length})</Link></li>
               <li>{loggeddInUser}</li>
             </ul>
           </nav>

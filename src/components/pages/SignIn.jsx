@@ -62,7 +62,7 @@ const SignIn = () => {
       if (user) {
         localStorage.setItem("loggedInEmail", user.email);
         toast.success("Login Successful!", { position: "top-center" });
-        navigate("/app/body");
+        navigate("/home/body");
       } else {
         setError((prev) => ({
           ...prev,

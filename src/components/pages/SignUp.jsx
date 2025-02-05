@@ -81,21 +81,45 @@ const SignUp = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
     validFullName(fullName);
     validEmail(email);
     validPassword(password);
     validConfirmPassword(confirmPassword);
-    if (fullName && email && password && confirmPassword) {
-      const users = JSON.parse(localStorage.getItem("users")) || [];
 
-      const newUser = { fullName, email, password, confirmPassword };
-      users.push(newUser);
+    const nameParts=fullName.trim().split(" ");
+    const first_name=nameParts[0];
+    const last_name=nameParts.slice(1).join(" ");
 
-      localStorage.setItem("users", JSON.stringify(users));
-      navigate("/signin");
+    const newUser={
+      first_name,
+      last_name,
+      email,
+      password,
+      confirm_password:confirmPassword
+    };
+
+    try{
+      const response=await fetch("http://localhost:8000/api/v1/auth/register",{
+        method:"POST",
+        headers:{
+          "Content-Type": "application/json",
+        },
+        body:JSON.stringify(newUser),
+      });
+
+      const data=await response.json()
+      if(response.ok){
+        // toast.success("User registered succesfully");
+        navigate("/signin");
+      }else{
+        toast.error(data.message || "Registration Failed");
+      }
+    }catch(error){
+      console.error("Error : ",error)
+      toast.error("something went wrong!");
     }
 
     console.log(fullName);
