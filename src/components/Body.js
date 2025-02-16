@@ -14,7 +14,6 @@ const Body = () => {
 
 
   useEffect(() => {
-    // console.log("UseEffect called");
     fetchData();
   }, []);
 
@@ -38,7 +37,6 @@ const Body = () => {
     setFilteredRestaurant(filteredList);
   };
   const handleSearch = () => {
-    // console.log(input)
     const filteredSearch = listOfRestaurant.filter((res) =>
       res.name.toLocaleLowerCase().includes(input.toLocaleLowerCase())
     );
@@ -51,7 +49,7 @@ const Body = () => {
   if(listOfRestaurant.length===0)return <Shimmer/>
   return (
     <main className="main">
-      <div className="filter flex gap-5 m-5">
+      <div className="filter flex gap-5 mt-24 mx-5">
         <button className="p-3 bg-custom-gray rounded-full" onClick={handleFilter}>
           top Rated Restaurant
         </button>
