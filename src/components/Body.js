@@ -67,7 +67,7 @@ const Body = () => {
         
       </div>
       <div className="res-container flex gap-3 flex-wrap">
-        {filteredRestaurant.map((card, index) => (
+        {filteredRestaurant.map((card) => (
           card.promoted?<RestaurantCardPromoted key={card.id} resData={card}/>:<RestaurantCard  key={card.id} resData={card}/>
         ))}
       </div>
