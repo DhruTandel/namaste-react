@@ -2,7 +2,7 @@ import React from 'react'
 
 const Grocery = () => {
   return (
-    <div>
+    <div className='mt-24'>
       Grocery component
     </div>
   )

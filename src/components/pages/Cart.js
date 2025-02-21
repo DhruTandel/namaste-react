@@ -6,7 +6,7 @@ const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
 
   if (cartItems.length === 0) {
-    return <h1 className="text-center">Your cart is empty!</h1>;
+    return <h1 className="text-center mt-24">Your cart is empty!</h1>;
   }
 
   const dispatch=useDispatch()
@@ -17,7 +17,7 @@ const Cart = () => {
 
   return (
     <>
-      <div className="text-center">
+      <div className="text-center mt-24">
         <button className="m-2 p-2 text-white bg-black rounded-lg " onClick={handleClearCart}>
           Clear Cart
         </button>

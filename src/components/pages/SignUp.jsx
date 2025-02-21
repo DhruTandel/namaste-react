@@ -131,7 +131,7 @@ const SignUp = () => {
     <>
       <div className="h-screen  w-full">
         <div
-          className="flex justify-center items-center w-full h-full bg-cover"
+          className=" flex justify-center items-center w-full h-full bg-cover"
           style={{
             backgroundImage: "url('https://i.postimg.cc/pdL2vfK9/bg.gif')",
           }}

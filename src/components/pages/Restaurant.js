@@ -27,7 +27,7 @@ const Restaurant = () => {
 
   return (
     <>
-      <div className="w-6/12 bg-gray-100 m-auto p-3 cursor-pointer">
+      <div className="w-6/12 bg-gray-100 m-auto p-3 cursor-pointer mt-24">
         <div className="flex justify-between" onClick={handleClick}>
           <h3>Recommended</h3>
           <span>▼</span>
