@@ -37,7 +37,7 @@ const Contact = () => {
             <button className="bg-yellow-600 p-2 text-xl text-white rounded-full hover:bg-yellow-500">
               SUBMIT
             </button>
-          </form>
+           </form>
         </div>
       </div>
     </>
