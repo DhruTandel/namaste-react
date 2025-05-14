@@ -9,17 +9,19 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { loggeddInUser } = useContext(UserContext);
   const cartItems = useSelector((store) => store.cart.items);
-  const location = useLocation(); 
+  const location = useLocation();
 
-    useEffect(()=>{
-      setIsOpen(false);
-    },[location])
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location])
   return (
     <>
       <header>
         <div className="w-full h-20 bg-blue-100 flex items-center justify-between fixed top-0 left-0 z-50">
           <div className="m-6 md:m-14 w-[70px] md:w-[80px] lg:w-[80px]">
-            <img src={LOGO_URL} alt="logo" />
+            <Link to={"/home/body"}>
+              <img src={LOGO_URL} alt="logo" className="cursor-pointer" to="/home/body" />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -58,11 +60,10 @@ export const Header = () => {
           {/* Mobile Menu */}
           <div
             className={`absolute xl:hidden top-[5rem] w-full flex flex-col items-center overflow-hidden transition-all duration-1000
-                ${
-                  isOpen
-                    ? "max-h-[500px] opacity-100"
-                    : " max-h-0 opacity-0 pointer-events-none"
-                }`}
+                ${isOpen
+                ? "max-h-[500px] opacity-100"
+                : " max-h-0 opacity-0 pointer-events-none"
+              }`}
           >
             {[
               { name: "Home", path: "/home/body" },
@@ -74,7 +75,7 @@ export const Header = () => {
               <li key={item.path} className="list-none w-full p-4 text-center bg-slate-200 group relative">
                 <Link to={item.path}>
                   {item.name}
-                
+
                   <span
                     className={`absolute bottom-0 left-0 h-0.5 bg-blue-700 transition-all duration-300
                       ${location.pathname === item.path ? "w-full" : "w-0"} 
