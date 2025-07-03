@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Difference</title>
+</head>
+<body>
+    <h2>Difference</h2>
+    <label for="time1">First Time (HH:MM):</label>
+    <input type="time" id="time1" value="12:30">
+    <br><br>
+    <label for="time2">Second time (HH:MM):</label>
+    <input type="time" id="time2" value="15:22">
+    <br><br>
+    <button onclick="calculateTimeDifference()">Difference</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateTimeDifference() {
+            const time1 = document.getElementById('time1').value;
+            const time2 = document.getElementById('time2').value;
+
+            const [hours1, minutes1] = time1.split(':').map(Number);
+            const [hours2, minutes2] = time2.split(':').map(Number);
+
+            const date1 = new Date(0, 0, 0, hours1, minutes1);
+            const date2 = new Date(0, 0, 0, hours2, minutes2);
+
+            let diffInMilliseconds = date2 - date1;
+            if (diffInMilliseconds < 0) {
+                diffInMilliseconds += 24 * 60 * 60 * 1000; // अगले दिन का समय जोड़ें
+            }
+
+            const diffInMinutes = diffInMilliseconds / (1000 * 60);
+            const hours = Math.floor(diffInMinutes / 60);
+            const minutes = Math.floor(diffInMinutes % 60);
+
+            document.getElementById('result').textContent = `Difference is : ${hours} Hour ${minutes} minute`;
+        }
+    </script>
+</body>
+</html>

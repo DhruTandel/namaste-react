@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const AboutUs = () => {
+
   return (
     <div className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8 mt-20">
       <div className="max-w-7xl mx-auto text-center">
@@ -17,7 +18,8 @@ const AboutUs = () => {
             src="https://via.placeholder.com/150"
             alt="Team Member"
           />
-          <h3 className="mt-4 text-xl font-medium text-gray-900">Dhru Tandel</h3>
+          <h3 className="mt-4 text-xl font-medium text-gray-900">Dhru Tandel
+          </h3>
           <p className="mt-2 text-base text-gray-500">CEO & Founder</p>
         </div>
 

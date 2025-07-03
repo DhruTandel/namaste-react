@@ -81,7 +81,7 @@ const SignUp = () => {
     }
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     validFullName(fullName);
@@ -89,36 +89,36 @@ const SignUp = () => {
     validPassword(password);
     validConfirmPassword(confirmPassword);
 
-    const nameParts=fullName.trim().split(" ");
-    const first_name=nameParts[0];
-    const last_name=nameParts.slice(1).join(" ");
+    const nameParts = fullName.trim().split(" ");
+    const first_name = nameParts[0];
+    const last_name = nameParts.slice(1).join(" ");
 
-    const newUser={
+    const newUser = {
       first_name,
       last_name,
       email,
       password,
-      confirm_password:confirmPassword
+      confirm_password: confirmPassword
     };
 
-    try{
-      const response=await fetch("http://localhost:8000/api/v1/auth/register",{
-        method:"POST",
-        headers:{
+    try {
+      const response = await fetch("http://localhost:8000/api/v1/auth/register", {
+        method: "POST",
+        headers: {
           "Content-Type": "application/json",
         },
-        body:JSON.stringify(newUser),
+        body: JSON.stringify(newUser),
       });
 
-      const data=await response.json()
-      if(response.ok){
+      const data = await response.json()
+      if (response.ok) {
         // toast.success("User registered succesfully");
         navigate("/signin");
-      }else{
+      } else {
         toast.error(data.message || "Registration Failed");
       }
-    }catch(error){
-      console.error("Error : ",error)
+    } catch (error) {
+      console.error("Error : ", error)
       toast.error("something went wrong!");
     }
 
@@ -148,9 +148,8 @@ const SignUp = () => {
               <input
                 type="text"
                 placeholder="Full Name"
-                className={` p-3 outline-none rounded-full shadow-[2px_6px_18px_rgba(66,57,238,0.3)] w-full ${
-                  error.fullName ? "border-2 border-red-500" : ""
-                }`}
+                className={` p-3 outline-none rounded-full shadow-[2px_6px_18px_rgba(66,57,238,0.3)] w-full ${error.fullName ? "border-2 border-red-500" : ""
+                  }`}
                 value={fullName}
                 onChange={(e) => {
                   setFullName(e.target.value);
@@ -165,9 +164,8 @@ const SignUp = () => {
               <input
                 type="text"
                 placeholder="Email Address"
-                className={` p-3 outline-none  rounded-full shadow-[2px_6px_18px_rgba(66,57,238,0.3)] w-full ${
-                  error.email ? "border-2 border-red-500" : ""
-                }`}
+                className={` p-3 outline-none  rounded-full shadow-[2px_6px_18px_rgba(66,57,238,0.3)] w-full ${error.email ? "border-2 border-red-500" : ""
+                  }`}
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -210,9 +208,8 @@ const SignUp = () => {
               <input
                 type={showConfirmPassword ? "text" : "password"}
                 placeholder="Confirm Password"
-                className={` p-3 outline-none  rounded-full shadow-[2px_6px_18px_rgba(66,57,238,0.3)] w-full ${
-                  error.confirmPassword ? "border-2 border-red-500" : ""
-                }`}
+                className={` p-3 outline-none  rounded-full shadow-[2px_6px_18px_rgba(66,57,238,0.3)] w-full ${error.confirmPassword ? "border-2 border-red-500" : ""
+                  }`}
                 value={confirmPassword}
                 onChange={(e) => {
                   setConfirmPassword(e.target.value);
@@ -239,15 +236,21 @@ const SignUp = () => {
             <p className="mr-3">
               Already have an account?
               <span
-                className="text-blue-500 cursor-pointer font-semibold ml-1"
+                className="text-blue-500 cursor-pointer font-semibold ml-1 hover:text-blue-400 "
                 onClick={() => navigate("/signin")}
               >
                 Sign In
               </span>
             </p>
-            <button className="w-full bg-[linear-gradient(-30deg,#3B02ED,#8E2AE0_55%)] text-white py-2 rounded-full">
+            {/* <button className="w-full bg-[linear-gradient(-30deg,#3B02ED,#8E2AE0_55%)] text-white py-2 rounded-full">
+              Sign Up
+            </button> */}
+            <button class="w-full bg-gradient-to-r from-[#3B02ED] to-[#8E2AE0] 
+               hover:from-[#8E2AE0] hover:to-[#3B02ED] 
+               text-white py-2 rounded-full transition-colors duration-300 font-bold">
               Sign Up
             </button>
+
           </form>
         </div>
       </div>

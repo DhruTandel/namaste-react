@@ -21,36 +21,64 @@ import Cart from "./components/pages/Cart";
 import SignIn from "./components/pages/SignIn";
 import SignUp from "./components/pages/SignUp";
 import { toast,ToastContainer } from "react-toastify";
+import Footer from './components/pages/Footer'
 const Grocery = lazy(() => import("./components/pages/Grocery"));
+
+// const App = () => {
+//   const [userName, setUserName] = useState("");
+
+//   useEffect(() => {
+//     //api call
+//     const users=JSON.parse(localStorage.getItem("users"))|| [];
+
+   
+//     const loggedInUser=users.find((val)=>{
+//       return val.email===localStorage.getItem("loggedInEmail")
+//     })
+
+//     if(loggedInUser){
+//       setUserName(loggedInUser.fullName)
+//     }
+//   }, []);
+//   return (
+//     <div className="app">
+//       <Provider store={appStore}>
+//         <UserContext.Provider value={{ loggeddInUser: userName, setUserName }}>
+//         <ToastContainer autoClose={2000} /> 
+//           <Header />
+//           <Outlet />
+//           <Footer className="bottom-0"/>
+//         </UserContext.Provider>
+//       </Provider>
+//     </div>
+//   );
+// };
 
 const App = () => {
   const [userName, setUserName] = useState("");
 
   useEffect(() => {
-    //api call
-    const users=JSON.parse(localStorage.getItem("users"))|| [];
-
-   
-    const loggedInUser=users.find((val)=>{
-      return val.email===localStorage.getItem("loggedInEmail")
-    })
-
-    if(loggedInUser){
-      setUserName(loggedInUser.fullName)
-    }
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const loggedInUser = users.find((u) => u.email === localStorage.getItem("loggedInEmail"));
+    if (loggedInUser) setUserName(loggedInUser.fullName);
   }, []);
+
   return (
-    <div className="app">
-      <Provider store={appStore}>
-        <UserContext.Provider value={{ loggeddInUser: userName, setUserName }}>
-        <ToastContainer autoClose={2000} /> 
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggeddInUser: userName, setUserName }}>
+        <ToastContainer autoClose={2000} />
+        <div className="flex flex-col min-h-screen">
           <Header />
-          <Outlet />
-        </UserContext.Provider>
-      </Provider>
-    </div>
+          <main className="flex-grow">
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
+
 
 const appRouter = createBrowserRouter([
   {

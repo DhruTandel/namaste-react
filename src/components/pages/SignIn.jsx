@@ -71,6 +71,7 @@ const SignIn = () => {
       }
     }
   };
+
   return (
     <>
       <div className="h-screen  w-full relative">
@@ -137,13 +138,15 @@ const SignIn = () => {
             <p className="mr-3">
               Not have an account?
               <span
-                className="text-blue-500 cursor-pointer font-semibold ml-1"
+                className="text-blue-500 cursor-pointer font-semibold ml-1 hover:text-blue-400"
                 onClick={() => navigate("/signup")}
               >
                 Sign Up
               </span>
             </p>
-            <button className="w-full bg-[linear-gradient(-30deg,#3B02ED,#8E2AE0_55%)] text-white py-2 rounded-full">
+            <button class="w-full bg-gradient-to-r from-[#3B02ED] to-[#8E2AE0] 
+               hover:from-[#8E2AE0] hover:to-[#3B02ED] 
+               text-white py-2 rounded-full transition-colors duration-300 font-bold">
               Sign In
             </button>
           </form>
